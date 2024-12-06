@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "./api.config";
+
+import "./App.css";
+import UserList from "./components/UserList";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-  const [message, setMessage] = useState("");
+  const [, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/example")
+      .get(`${API_BASE_URL}/api/example`)
       .then((response) => {
         setMessage(response.data.message);
       })
@@ -15,12 +22,21 @@ function App() {
           "Il y a eu une erreur lors de la récupération des données :",
           error
         );
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
+  if (loading) return <p>Chargement...</p>;
+
   return (
     <div>
-      <h1>{message}</h1>
+      <Header />
+      <main>
+        <UserList />
+      </main>
+      <Footer />
     </div>
   );
 }
