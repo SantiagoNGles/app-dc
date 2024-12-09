@@ -1,11 +1,12 @@
 import React from "react";
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer
-      style={{ background: "#f1f1f1", padding: "1rem", textAlign: "center" }}
+    // style={{ background: "#f1f1f1", padding: "1rem", textAlign: "center" }}
     >
-      <p>&copy; 2023 Mon application. Tous droits réservés.</p>
+      <p>&copy; 2024 Digital Car.</p>
     </footer>
   );
 }

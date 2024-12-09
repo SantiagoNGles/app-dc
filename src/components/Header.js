@@ -1,9 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 function Header() {
   return (
-    <header style={{ background: "#282c34", padding: "1rem", color: "white" }}>
-      <h1>Mon application</h1>
+    <header>
+      <h1>Digital Car</h1>
+      <nav>
+        <Link to="/">Accueil</Link>
+        <Link to="/login">Connexion</Link>
+      </nav>
     </header>
   );
 }
